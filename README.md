@@ -1,4 +1,4 @@
-```markdown
+
 # OpenTofu Provider for Ansible
 
 The **OpenTofu Provider for Ansible** acts as a bridge between Infrastructure as Code (OpenTofu) and Configuration Management (Ansible). 
@@ -49,7 +49,7 @@ terraform {
     }
   }
 }
-
+```
 # 1. Create the Infrastructure
 ```
 resource "aws_instance" "web_server" {
@@ -76,7 +76,6 @@ resource "ansible_host" "web_host" {
     custom_app_port              = 8080
   }
 }
-
 ```
 
 ### 2. Configure Ansible Inventory (`inventory.yml`)
