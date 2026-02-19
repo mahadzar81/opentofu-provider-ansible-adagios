@@ -1,0 +1,14 @@
+---
+- name: Deploy Monitoring Stack
+  hosts: all
+  become: yes
+  collections:
+    - mahadzar81.adagios
+  
+  vars:
+    nagiosadmin_pass: "SuperSecurePassword!"
+    nagios_version: "4.5.0"
+
+  roles:
+    - nagios_core
+    - adagios
