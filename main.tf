@@ -5,10 +5,10 @@ provider "aws" {
 terraform {
   backend "s3" {
     encrypt        = true
-    bucket         = "maza-remote-state-storage-s3"
-    region         = "ap-southeast-1"
-    key            = "infrastructure/tfremote/terraform.tfstate"
-    dynamodb_table = "terraform-state-lock-dynamo"
+    bucket         = var.backend_bucket
+    region         = var.region
+    key            = var.backend_key
+    dynamodb_table = var.backend_dynamodb_table
   }
 }
 

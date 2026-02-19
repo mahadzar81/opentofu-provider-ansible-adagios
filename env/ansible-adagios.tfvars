@@ -5,6 +5,9 @@ instance_type = "c6i.xlarge"
 count_instance = 1
 user = "admin"
 key_pair_id = "~/.ssh/id_rsa.pub"
+backend_bucket = "maza-remote-state-storage-s3"
+backend_key = "infrastructure/tfremote/terraform.tfstate"
+backend_dynamodb_table = "terraform-state-lock-dynamo"
 command             = [
     "sleep 30",
     "sudo apt update",
