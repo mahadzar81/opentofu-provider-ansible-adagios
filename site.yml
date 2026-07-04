@@ -4,9 +4,16 @@
   become: yes
   collections:
     - mahadzar81.adagios
-  
+
   vars:
-    nagiosadmin_pass: "SuperSecurePassword!"
+    # Previously a plaintext literal ("SuperSecurePassword!") committed
+    # directly to this file. Now sourced from an ansible-vault-encrypted
+    # variable instead. Create it with:
+    #   ansible-vault create group_vars/all/vault.yml
+    # and inside that file set:
+    #   vault_nagiosadmin_pass: "<your real password>"
+    # then run with --ask-vault-pass or a vault password file.
+    nagiosadmin_pass: "{{ vault_nagiosadmin_pass }}"
     nagios_version: "4.5.0"
 
   roles:

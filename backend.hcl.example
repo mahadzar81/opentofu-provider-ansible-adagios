@@ -1,0 +1,15 @@
+# Copy to backend.hcl (gitignored) and adjust, or pass these as
+# -backend-config="key=value" flags individually.
+#
+# Usage:
+#   tofu init -backend-config=backend.hcl
+#
+# Keep the values here in sync with the backend_bucket / backend_key /
+# backend_dynamodb_table variables you pass via terraform.tfvars, since
+# main.tf's backend block can't read those variables directly.
+
+bucket         = "maza-remote-state-storage-s3"
+key            = "infrastructure/tfremote/terraform.tfstate"
+region         = "ap-southeast-1"
+dynamodb_table = "terraform-state-lock-dynamo"
+encrypt        = true
